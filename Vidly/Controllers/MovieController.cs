@@ -46,13 +46,25 @@ namespace Vidly.Controllers
             if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "Name";
 
-            return Content(string.Format("page = {0}, sort by = {1}", pageIndex, sortBy));
+            //return Content(string.Format("page = {0}, sort by = {1}", pageIndex, sortBy));
+
+            return View(GetMovies());
+
         }
 
         [Route("movie/release/{year:regex(\\d{4}):range(1900, 2019)}/{month:regex(1[0-2]|[1-9]|0[1-9]):range(1, 12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(string.Format("y:{0} m:{1}", year, month));
+        }
+
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>()
+            {
+                new Movie() { Id = 1, Name = "Shrek!"},
+                new Movie() { Id = 2, Name = "Mad Max"}
+            };
         }
     }
 }
