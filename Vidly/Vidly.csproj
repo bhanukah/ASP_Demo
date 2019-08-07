@@ -177,10 +177,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908071235105_Mod1.cs" />
+    <Compile Include="Migrations\201908071235105_Mod1.Designer.cs">
+      <DependentUpon>201908071235105_Mod1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908071236161_Mod2.cs" />
+    <Compile Include="Migrations\201908071236161_Mod2.Designer.cs">
+      <DependentUpon>201908071236161_Mod2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908071245126_Mod3MemType.cs" />
+    <Compile Include="Migrations\201908071245126_Mod3MemType.Designer.cs">
+      <DependentUpon>201908071245126_Mod3MemType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908071249504_AddMemTypeValues.cs" />
+    <Compile Include="Migrations\201908071249504_AddMemTypeValues.Designer.cs">
+      <DependentUpon>201908071249504_AddMemTypeValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908071312294_NameReqCust.cs" />
+    <Compile Include="Migrations\201908071312294_NameReqCust.Designer.cs">
+      <DependentUpon>201908071312294_NameReqCust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -296,6 +318,23 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201908071235105_Mod1.resx">
+      <DependentUpon>201908071235105_Mod1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908071236161_Mod2.resx">
+      <DependentUpon>201908071236161_Mod2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908071245126_Mod3MemType.resx">
+      <DependentUpon>201908071245126_Mod3MemType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908071249504_AddMemTypeValues.resx">
+      <DependentUpon>201908071249504_AddMemTypeValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908071312294_NameReqCust.resx">
+      <DependentUpon>201908071312294_NameReqCust.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
