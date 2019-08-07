@@ -6,3 +6,10 @@
 
 <h2>Customer Details</h2>
 <h5>@Model.Name</h5>
+<ul>
+    <li>Membership Type: @Model.MembershipType.Name</li>
+    @if (Model.Birthdate != null)
+    {
+        <li>Birthdate: @Model.Birthdate.Value.ToString("dd/MM/yyyy")</li>
+    }
+</ul>
