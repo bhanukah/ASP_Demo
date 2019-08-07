@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,15 +10,25 @@ namespace Vidly.Controllers
 {
     public class CustomerController : Controller
     {
-        // GET: Customer
+        private ApplicationDbContext _context;
+
+        public CustomerController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+            base.Dispose(disposing);
+        }
         public ActionResult Index()
         {
-            return View(GetCustomers());
+            return View(_context.Customers.Include(c => c.MembershipType));
         }
 
         public ActionResult Details(int id)
         {
-            Customer customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            Customer customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customer == null)
             {
                 return HttpNotFound("Error: No such customer!");
@@ -26,15 +37,6 @@ namespace Vidly.Controllers
             {
                 return View(customer);
             }
-        }
-
-        private IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>()
-            {
-                new Customer() { Id = 1, Name = "Wisdom"},
-                new Customer() { Id = 2, Name = "William"}
-            };
         }
     }
 }
